@@ -5,11 +5,13 @@
 #
 # Sergey Dymchenko <kit1980@gmail.com>
 #
-# Language: Python 
+# Language: Python
 # Tested with Python 2.6.5
-# python rpn-calculator.py
+# Usage: python rpn-calculator.py
 
-class RPN(object):
+
+class RPNCalc(object):
+
     def __init__(self):
         self.stack = []
         self.operations = {
@@ -37,11 +39,15 @@ class RPN(object):
         return self.stack[-1]
 
 
-calc = RPN()
-while True:
-    try:
-        expression_string = raw_input()
-        calc.process(expression_string)
-        print calc.result()
-    except EOFError:
-        break
+def main():
+    calc = RPNCalc()
+    while True:
+        try:
+            expression_string = raw_input()
+            calc.process(expression_string)
+            print calc.result()
+        except EOFError:
+            break
+
+if __name__ == "__main__":
+    main()
